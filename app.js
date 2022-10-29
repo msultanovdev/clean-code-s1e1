@@ -3,9 +3,8 @@ var taskInput = document.getElementById("newTask"),
     incompleteTaskHolder = document.getElementById("incompleteTasks"),
     completedTasksHolder = document.getElementById("completedTasks");
 
-
 //New task list item
-var createNewTaskElement = function(taskString){
+var createNewTaskElement = function(taskString) {
     var listItem = document.createElement("li"),
         checkBox = document.createElement("input"),
         label = document.createElement("label"),
@@ -38,7 +37,7 @@ var createNewTaskElement = function(taskString){
 
 
 
-var addTask = function(){
+var addTask = function() {
     //Create a new list item with the text from the #newTask:
     if (!taskInput.value) return;
     var listItem = createNewTaskElement(taskInput.value);
@@ -51,7 +50,6 @@ var addTask = function(){
 }
 
 //Edit an existing task.
-
 var editTask = function() {
     var listItem = this.parentNode,
         editInput = listItem.querySelector('input[type=text]'),
@@ -69,7 +67,6 @@ var editTask = function() {
     listItem.classList.toggle("editMode");
 };
 
-
 //Delete task.
 var deleteTask = function() {
     console.log("Delete Task...");
@@ -80,28 +77,21 @@ var deleteTask = function() {
 
 }
 
-
 //Mark task completed
-var taskCompleted = function(){
-    console.log("Complete Task...");
-
+var taskCompleted = function() {
     var listItem = this.parentNode;
     completedTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
 
 }
 
-
-var taskIncomplete = function(){
-    console.log("Incomplete Task...");
+var taskIncomplete = function() {
     var listItem = this.parentNode;
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskCompleted);
 }
 
-
-
-var ajaxRequest = function(){
+var ajaxRequest = function() {
     console.log("AJAX Request");
 }
 
