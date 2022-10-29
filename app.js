@@ -6,21 +6,17 @@ var taskInput = document.getElementById("newTask"),
 
 //New task list item
 var createNewTaskElement = function(taskString){
-
-    var listItem = document.createElement("li");
-
-    var checkBox = document.createElement("input");
-    var label = document.createElement("label");
-    var editInput = document.createElement("input");
-    var editButton = document.createElement("button");
-
-    var deleteButton = document.createElement("button");
-    var deleteButtonImg = document.createElement("img");
+    var listItem = document.createElement("li"),
+        checkBox = document.createElement("input"),
+        label = document.createElement("label"),
+        editInput = document.createElement("input"),
+        editButton = document.createElement("button"),
+        deleteButton = document.createElement("button"),
+        deleteButtonImg = document.createElement("img");
 
     label.innerText = taskString;
     label.className = 'task';
 
-    //Each elements, needs appending
     checkBox.type = "checkbox";
     editInput.type = "text";
     editInput.className = "task";
@@ -32,7 +28,6 @@ var createNewTaskElement = function(taskString){
     deleteButtonImg.src = './remove.svg';
     deleteButton.appendChild(deleteButtonImg);
 
-
     listItem.appendChild(checkBox);
     listItem.appendChild(label);
     listItem.appendChild(editInput);
@@ -43,8 +38,7 @@ var createNewTaskElement = function(taskString){
 
 
 
-var addTask=function(){
-    console.log("Add Task...");
+var addTask = function(){
     //Create a new list item with the text from the #newTask:
     if (!taskInput.value) return;
     var listItem = createNewTaskElement(taskInput.value);
@@ -58,17 +52,16 @@ var addTask=function(){
 
 //Edit an existing task.
 
-var editTask=function(){
-    var listItem = this.parentNode;
-
-    var editInput = listItem.querySelector('input[type=text]');
-    var label = listItem.querySelector("label");
-    var editBtn = listItem.querySelector(".edit");
-    var containsClass = listItem.classList.contains("editMode");
-    if(containsClass){
+var editTask = function() {
+    var listItem = this.parentNode,
+        editInput = listItem.querySelector('input[type=text]'),
+        label = listItem.querySelector("label"),
+        editBtn = listItem.querySelector(".edit"),
+        containsClass = listItem.classList.contains("editMode");
+    if(containsClass) {
         label.innerText = editInput.value;
         editBtn.innerText = "Edit";
-    }else{
+    } else {
         editInput.value = label.innerText;
         editBtn.innerText = "Save";
     }
@@ -113,15 +106,14 @@ var ajaxRequest = function(){
 }
 
 addButton.onclick = addTask;
-addButton.addEventListener("click",addTask);
-addButton.addEventListener("click",ajaxRequest);
+addButton.addEventListener("click", addTask);
+addButton.addEventListener("click", ajaxRequest);
 
 
-var bindTaskEvents = function(taskListItem,checkBoxEventHandler){
-    console.log("bind list item events");
-    var checkBox = taskListItem.querySelector("input[type=checkbox]");
-    var editButton = taskListItem.querySelector("button.edit");
-    var deleteButton = taskListItem.querySelector("button.delete");
+var bindTaskEvents = function(taskListItem, checkBoxEventHandler){
+    var checkBox = taskListItem.querySelector("input[type=checkbox]"),
+        editButton = taskListItem.querySelector("button.edit"),
+        deleteButton = taskListItem.querySelector("button.delete");
 
     editButton.onclick = editTask;
     deleteButton.onclick = deleteTask;
