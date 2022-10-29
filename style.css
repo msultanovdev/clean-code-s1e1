@@ -36,7 +36,7 @@
     display: flex;
 }
 .todo-list {
-    margin:0;
+    margin: 0;
     padding: 0px;
 }
 .todo-list__item, .todo-list-complete {
@@ -116,7 +116,7 @@ li > label {
     width: 226px;
 }
 li > input[type="text"] {
-    width: 226px
+    width: 226px;
 }
 .btn.delete img {
     height: 2em;
@@ -130,17 +130,17 @@ li > input[type="text"] {
 /* Completed */
 .todo-list#completedTasks label {
     color: #888;
-    text-decoration: line-through
+    text-decoration: line-through;
 }
 
 /* Edit Task */
 .todo-list li input[type=text] {
-    display: none
+    display: none;
 }
 
 .todo-list li.editMode input[type=text] {
     display: inline-block;
-    width: 224px
+    width: 224px;
 }
 
 .todo-list li.editMode label {
