@@ -17,10 +17,10 @@
     font-family: fantasy, cursive;
 }
 
-@media (max-width:768px) {
-.header { 
-    text-align: center;
-}
+@media (max-width: 768px) {
+    .header { 
+        text-align: center;
+    }
 }
 .hero {
     display: block;
@@ -42,7 +42,8 @@
 .todo-list__item, .todo-list-complete {
     list-style: none;
 }
-input, button{
+input, 
+button {
     outline: none;
 }
 .btn {
